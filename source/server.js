@@ -1,6 +1,6 @@
 import React from 'react';
 import { StaticRouter } from "react-router";
-import { renderToStaticMarkup, renderToString } from 'react-dom/server'
+import { renderToStaticMarkup } from 'react-dom/server'
 import Markup from './Markup';
 import App from './app/app';
 import { Provider } from 'react-redux';
@@ -8,8 +8,10 @@ import { createStore, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk';
 import http from 'http'
 import reducer from './app/reducer'
+import renderToStringAsync from 'react-fetch-ssr';
 
-function handleRequest(request, response){
+
+async function handleRequest(request, response){
 
   //create store
   const store = createStore(
@@ -18,7 +20,7 @@ function handleRequest(request, response){
   );
 
   const context = {};
-  const content =renderToString(
+  const contentRendered = await renderToStringAsync(
     <Provider store={store}>
       <StaticRouter context={context} location={request.url}>
         <App />
@@ -26,7 +28,7 @@ function handleRequest(request, response){
     </Provider>
   );
 
-  const html = renderToStaticMarkup(<Markup content={content} />);
+  const html = renderToStaticMarkup(<Markup content={contentRendered} />);
   response.write(html);
   response.end();
   console.log(request.url)
