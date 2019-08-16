@@ -21,8 +21,13 @@ const config = {
       },
       {
         test: /\.css$/,
-        use: [extract.loader, "css-loader?modules=true&localIdentName=[hash:base64:15]"]
-      }
+        use: [extract.loader, {
+          loader: 'css-loader',
+          options: {
+            modules: true,
+          },
+        }],
+      },
     ]
   },
   resolve: {
