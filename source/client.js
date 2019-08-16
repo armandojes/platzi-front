@@ -7,11 +7,24 @@ import { createStore, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk';
 import logger from 'redux-logger'
 import { composeWithDevTools } from 'redux-devtools-extension';
+import reducer from './app/reducer.js';
+
+var store = createStore(
+  reducer,
+  composeWithDevTools(
+    applyMiddleware(
+      ReduxThunk,
+      logger
+    )
+  )
+);
 
 
 hydrate(
+  <Provider store={store}>
     <BrowserRouter>
       <App />
-    </BrowserRouter>,
+    </BrowserRouter>
+  </Provider>,
   document.getElementById('render_target')
 )

@@ -7,14 +7,23 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk';
 import http from 'http'
-
+import reducer from './app/reducer'
 
 function handleRequest(request, response){
+
+  //create store
+  const store = createStore(
+    reducer,
+    applyMiddleware(ReduxThunk)
+  );
+
   const context = {};
   const content =renderToString(
-    <StaticRouter context={context} location={request.url}>
-      <App />
-    </StaticRouter>
+    <Provider store={store}>
+      <StaticRouter context={context} location={request.url}>
+        <App />
+      </StaticRouter>
+    </Provider>
   );
 
   const html = renderToStaticMarkup(<Markup content={content} />);
@@ -24,4 +33,5 @@ function handleRequest(request, response){
 }
 
 
-http.createServer(handleRequest).listen(3000, () => {console.log('server stared on port 3000')});
+const server = http.createServer(handleRequest);
+server.listen(3000, () => {console.log('server stared on port 3000')});
