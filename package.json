@@ -1,0 +1,14 @@
+{
+  "name": "platzi",
+  "version": "0.0.1",
+  "description": "no oficial platzi blog",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "platzi-blog"
+  ],
+  "author": "jesusmaster",
+  "license": "ISC"
+}
