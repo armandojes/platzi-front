@@ -14,7 +14,7 @@ function Header(props){
         </div>
       </div>
       <div className={style.shadow}>
-        header no fixed
+        
       </div>
     </header>
   )
