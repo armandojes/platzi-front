@@ -7,7 +7,7 @@ function Markup (props){
         <meta charSet="utf-8" />
         <title>Platzi Blog</title>
         <base href={BASEURL}/>
-        <link rel="stylesheet" type="text/css" href={`${STATICURL}/build/style.js`} />
+        <link rel="stylesheet" type="text/css" href={`${STATICURL}/build/style.css`} />
         <meta name="viewport" content="width=device-width, user-scalable=no" />
       </head>
       <body>

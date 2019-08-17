@@ -40,6 +40,7 @@ const config = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
       BASEURL: JSON.stringify(process.env.NODE_ENV === 'production' ? 'https://platzi-blog.now.sh' : 'http://localhost:3000'),
+      STATICURL: JSON.stringify(process.env.NODE_ENV === 'production' ? '' : 'http://localhost:8080')
     })
   ],
   target: 'web',
