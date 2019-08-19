@@ -1,0 +1,25 @@
+.content{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.items{
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+  color: inherit;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+.avatar{
+  width: 25px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.icon{
+  width: 20px;
+  margin-right: 5px;
+}
+.bold{
+  font-weight: bold;
+}

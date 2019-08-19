@@ -1,0 +1,17 @@
+.button_like{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 60px;
+  background: #fff;
+  color: gray;
+  border-radius: 10px;
+  border: 1px solid #cdcdcd;
+}
+.icon_like{
+  width: 25px;
+  display: block;
+  margin-bottom: 5px;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './components/header'
 import 'reset-css';
+import './global_style';
 import {Switch, Route} from 'react-router';
 import Home from './pages/home';
 import Post from './pages/post';

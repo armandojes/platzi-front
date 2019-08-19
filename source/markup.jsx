@@ -13,6 +13,7 @@ function Markup (props){
       <body>
         <div id="render_target" dangerouslySetInnerHTML={{__html: props.content}}></div>
         <script src={`${STATICURL}/build/client.js`}/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700&amp;subset=latin" media="all" />
       </body>
     </html>
   )
