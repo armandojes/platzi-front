@@ -7,16 +7,16 @@ import { Link } from 'react-router-dom';
 
 function PostPrimary (props){
   return (
-    <section className={style.content} style={{backgroundImage: 'url(https://static.platzi.com/media/blog/cover-back-for-frontend-59149515-3636-4c86-936e-7cde6523b5d1.png)'}}>
+    <section className={style.content} style={{backgroundImage: `url(${props.cover})`}}>
       <Container>
         <div className={style.body}>
           <div className={style.data_content}>
             <div className={style.votes}>
-              <ButtonLike likes={55}/>
+              <ButtonLike likes={props.votes}/>
             </div>
             <div className={style.data}>
-              <Link to="/" className={style.title}>¿Cuándo crear un Componente? Estructura, Organización y Tipos de Componentes en React</Link>
-              <MetaData />
+              <Link to={`/post/${props.url}`} className={style.title}>{props.title}</Link>
+              <MetaData {...props}/>
             </div>
           </div>
         </div>

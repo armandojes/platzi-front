@@ -6,6 +6,7 @@ function Post (props){
   return (
     <div role="page">
       <PostPrimary />
+      
     </div>
   )
 }

@@ -12,7 +12,7 @@ function PostPrimary (props){
     await props.dispatch(load_primary_post());
   },[]);
 
-  if (!props.loading && props.data) return (<View />);
+  if (!props.loading && props.data) return (<View {...props.data}/>);
   return (<Loading />);
 }
 

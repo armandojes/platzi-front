@@ -1,6 +1,6 @@
 //params:states::object, path::string, custom_reducers::object
 //return [actions, reducers];
-//cutomeReducer: {name: function}
+//cutomeReducer: {name_state: function}
 function makeFlux (objects_of_states, path, custom_reducers = {}){
   var actions = {};
   var reducers = {};

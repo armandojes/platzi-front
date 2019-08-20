@@ -6,17 +6,17 @@ import { Link } from 'react-router-dom';
 function MetaData (props){
   return (
     <div className={style.content}>
-      <Link className={`${style.items} ${style.bold}`} to="/armandodejesus">
-        <img src="https://static.platzi.com/media/avatars/avatars/foloarte_35a70dd6-529f-424e-adcf-8cec51bb6e33.jpg" className={style.avatar}/>
-        Armandod de jesus
-      </Link>
+      <a className={`${style.items} ${style.bold}`} href={`https://platzi.com/@${props.username}`}>
+        <img src={props.avatar} className={style.avatar}/>
+        {props.username}
+      </a>
       <div className={style.items}>
         <img src={`${STATICURL}/build/clock.png`} className={style.icon}/>
-        hace 5 dias
+        {props.created_at}
       </div>
       <div className={style.items}>
         <img src={`${STATICURL}/build/comments.png`} className={style.icon}/>
-        5 comentarios
+        {props.comments || 0} comentarios
       </div>
     </div>
   )
