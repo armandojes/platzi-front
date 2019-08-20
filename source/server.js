@@ -27,8 +27,8 @@ async function handleRequest(request, response){
       </StaticRouter>
     </Provider>
   );
-
-  const html = renderToStaticMarkup(<Markup content={contentRendered} />);
+  const state = store.getState();
+  const html = renderToStaticMarkup(<Markup content={contentRendered} state={state}/>);
   response.write(html);
   response.end();
   console.log(request.url)

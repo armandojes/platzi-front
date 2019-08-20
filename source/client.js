@@ -9,9 +9,13 @@ import logger from 'redux-logger'
 import { composeWithDevTools } from 'redux-devtools-extension';
 import reducer from './app/reducer.js';
 
+var preloaded_state = window.__STATE__;
+preloaded_state = JSON.parse(preloaded_state);
 
+//creano store
 var store = createStore(
   reducer,
+  preloaded_state,
   composeWithDevTools(
     applyMiddleware(
       ReduxThunk,

@@ -8,6 +8,7 @@ import { load_primary_post } from './ducks'
 function PostPrimary (props){
 
   useFetch(async () => {
+    if (!props.data)
     await props.dispatch(load_primary_post());
   },[]);
 
