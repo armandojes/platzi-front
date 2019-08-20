@@ -26,7 +26,7 @@ const api = {
       url: `/postprimary`,
       method: 'get',
     });
-  }
+  },
   get_comments(url){
     return connect({
       url: `/comments/${url}`,
