@@ -12,7 +12,7 @@ function makeFlux (objects_of_states, path, custom_reducers = {}){
     actions[name_action] = createActionCreator(action_type);
     reducers[name] = createReducer(objects_of_states[name],action_type, action_type_reset, custom_reducers[name]);
   }
-  actions['set_initialState'] = () => ({type: action_type_reset});
+  actions['set_initial_state'] = () => ({type: action_type_reset});
   return [reducers, actions];
 }
 

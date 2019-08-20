@@ -1,6 +1,10 @@
 body{
   font-family: 'Lato', sans-serif;
+  background-color: #f3f3f6;
 }
 :global(.b_color){
   background-color: #cdcdcd;
+}
+img{
+  max-width: 100%;
 }
