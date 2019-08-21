@@ -3,7 +3,7 @@ body{
   background-color: #f3f3f6;
 }
 :global(.b_color){
-  background-color: #cdcdcd;
+  background-color: #cdcdcd87;
 }
 img{
   max-width: 100%;

@@ -1,0 +1,31 @@
+.content{
+  background: #fff;
+  display: flex;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  align-items: flex-start;
+}
+.content_data{
+  width: 100%;
+  display: block;
+  height: 136px;
+}
+.text{
+  height: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+.text_secundary{
+  height: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  width: 50%;
+}
+.votes{
+  margin-right: 10px;
+  border-radius: 5px;
+  min-width: 50px;
+  min-height: 65px;
+}
