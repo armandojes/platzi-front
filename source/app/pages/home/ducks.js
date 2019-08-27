@@ -13,9 +13,12 @@ const initial_state = {
   error: false,
 }
 
-
+// items array  = vaciar estado
+// array no vacio concatenar resultado.
 function items_reducer(state, payload){
-  return state.concat(payload);
+  return payload.length  === 0
+  ? payload
+  : state.concat(payload);
 }
 
 const [reducers, actions] = make_flux(initial_state, '/home',{items: items_reducer} );
@@ -26,6 +29,40 @@ export const load_news = () => async (dispatch, getState) => {
   const state = getState();
   const current_page = state.pages.home.current_page;
   const response = await api.get_list(current_page + 1);
+  if (!response.error){
+    dispatch(set_items(response.items));
+    dispatch(set_num_pages(response.num_pages));
+    dispatch(set_num_items(response.num_items));
+    dispatch(set_current_page(current_page + 1))
+  } else {
+    dispatch(set_error(true));
+  }
+  dispatch(set_loading(false));
+}
+
+export const search = () => async (dispatch, getState) => {
+  dispatch(set_loading(true));
+  const state = getState();
+  const query  = state.pages.home.query;
+  const response = await api.get_result(query,1);
+  dispatch(set_items([]));
+  if (!response.error){
+    dispatch(set_items(response.items));
+    dispatch(set_num_pages(response.num_pages));
+    dispatch(set_num_items(response.num_items));
+    dispatch(set_current_page(1))
+  } else {
+    dispatch(set_error(true));
+  }
+  dispatch(set_loading(false));
+}
+
+
+export const load_search = () => async (dispatch, getState) => {
+  dispatch(set_loading(true));
+  const state = getState();
+  const {current_page, query}  = state.pages.home;
+  const response = await api.get_result(query,current_page + 1);
   if (!response.error){
     dispatch(set_items(response.items));
     dispatch(set_num_pages(response.num_pages));

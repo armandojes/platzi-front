@@ -6,7 +6,7 @@ import Metadata from '../metadata';
 
 function Item(props){
   return (
-    <Link to="/post/test" className={style.content}>
+    <Link to={`/post/${props.url}`} className={style.content}>
       <div className={style.votes_content}>
         <ButtonLike likes={props.votes}/>
       </div>

@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 import News from './components/news'
 import Voteds from './components/voteds'
 import Search from './components/search'
-import {set_type, set_query, set_initial_state, load_news} from './ducks';
+import {set_type, set_query, set_initial_state, load_news, search, load_search} from './ducks';
 
 
 function Post (props){
@@ -30,6 +30,7 @@ function mapStateToProps(state){
     query: state.pages.home.query,
     num_pages: state.pages.home.num_pages,
     num_items: state.pages.home.num_items,
+    current_page: state.pages.home.current_page,
   }
 }
 
@@ -38,7 +39,9 @@ function mapDispatchToProps(dispatch){
     set_type: (type) => (dispatch) => {dispatch(set_initial_state()); dispatch(set_type(type))},
     set_query,
     set_initial_state,
-    load_news, 
+    load_news,
+    search,
+    load_search,
   }, dispatch);
 }
 

@@ -3,12 +3,13 @@ import style from './style';
 import Container from '../../../../components/container';
 
 function Header (props) {
+
   return (
     <Container>
       <div className={style.title}>
         {props.type === 'news' && ('Posts nuevos')}
         {props.type === 'voteds' && ('Mas votados')}
-        {props.type === 'search' && (`"${props.query}"`)}
+        {props.type === 'search' && ('Resultados')}
       </div>
       <div className={style.controls_container}>
         <select className={style.select} onChange={(e) => {props.set_type(e.target.value)}} value={props.type}>

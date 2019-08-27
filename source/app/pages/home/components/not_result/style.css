@@ -1,0 +1,11 @@
+.content{
+  min-height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  padding: 5px;
+  text-align: center;
+  font-size: 1.1em;
+  font-weight: bold;
+}
