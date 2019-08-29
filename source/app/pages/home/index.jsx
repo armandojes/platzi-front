@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 import News from './components/news'
 import Voteds from './components/voteds'
 import Search from './components/search'
-import {set_type, set_query, set_initial_state, load_news, search, load_search} from './ducks';
+import {set_type, set_query, set_initial_state, load_news, search, load_search, load_voteds} from './ducks';
 
 
 function Post (props){
@@ -42,6 +42,7 @@ function mapDispatchToProps(dispatch){
     load_news,
     search,
     load_search,
+    load_voteds,
   }, dispatch);
 }
 

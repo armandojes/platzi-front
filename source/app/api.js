@@ -1,5 +1,6 @@
 import axios from 'axios';
-const base_url = 'https://platzi-blog.000webhostapp.com';
+//const base_url = 'https://platzi-blog.000webhostapp.com';
+const base_url = 'http://localhost:81';
 
 async function connect (config){
   config.url = `${base_url}${config.url}`
@@ -21,6 +22,12 @@ const api = {
       method: 'get',
     });
   },
+  get_list_voteds (page = 1){
+    return connect({
+      url: `/posts/popular/${page}`,
+      method: 'get',
+    });
+  },
   get_single (url){
     return connect({
       url: `/post/${url}`,
@@ -38,7 +45,8 @@ const api = {
       url: `/comments/${url}`,
       method: 'get',
     });
-  }
+  },
+
 }
 
 export default api;

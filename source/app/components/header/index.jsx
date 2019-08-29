@@ -13,9 +13,7 @@ function Header(props){
           </Link>
         </div>
       </div>
-      <div className={style.shadow}>
-        
-      </div>
+      <div className={style.shadow} />
     </header>
   )
 }
