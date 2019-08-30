@@ -18,8 +18,8 @@ export const load_post = (id_post) => async (dispatch) => {
 }
 
 const [reducers, actions] = make_flux(initial_state, '/post');
-const {set_post, set_comments} = actions;
+const {set_post, set_comments, set_initial_state} = actions;
 
-
+export {set_initial_state};
 
 export default combineReducers(reducers);

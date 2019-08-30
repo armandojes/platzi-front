@@ -1,6 +1,8 @@
 body{
   font-family: 'Lato', sans-serif;
   background-color: #f3f3f6;
+  padding: 0px;
+  margin: 0px;
 }
 :global(.b_color){
   background-color: #cdcdcd87;

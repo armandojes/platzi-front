@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import style from './style';
 import {connect} from 'react-redux';
-import { load_post } from './ducks';
+import { load_post, set_initial_state } from './ducks';
 import { bindActionCreators } from 'redux';
 import { useFetch } from 'react-fetch-ssr';
 import PostBody from './components/post';
@@ -14,6 +14,7 @@ function Post (props){
     await props.load_post(props.match.params.url);
   },[]);
 
+  useEffect(() => () => {props.set_initial_state()},[]);
 
   return typeof props.post === 'object'
   ? (<PostBody {...props.post} />)
@@ -37,7 +38,7 @@ function mapStateToProps(state){
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({load_post}, dispatch)
+  return bindActionCreators({load_post, set_initial_state}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Post);
