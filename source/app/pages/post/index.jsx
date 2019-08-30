@@ -6,8 +6,8 @@ import { bindActionCreators } from 'redux';
 import { useFetch } from 'react-fetch-ssr';
 import PostBody from './components/post';
 import Container from '../../components/container'
-import hljs from 'highlight.js';
-
+import Highlight from 'react-highlight';
+import {renderToStaticMarkup} from 'react-dom/server';
 
 function Post (props){
 
@@ -18,12 +18,14 @@ function Post (props){
 
   useEffect(() => () => {props.set_initial_state()},[]);
 
-  useEffect(() => {
-    hljs.initHighlighting();
-  });
-
+  const postBodyHtml = renderToStaticMarkup(<PostBody {...props.post} />);
+  console.log(postBodyHtml);
   return typeof props.post === 'object'
-  ? (<PostBody {...props.post} />)
+  ? (
+    <Highlight innerHTML={true}>
+      {postBodyHtml}
+    </Highlight>
+  )
   : (
     <Container>
       {props.post === 'loading' && (
