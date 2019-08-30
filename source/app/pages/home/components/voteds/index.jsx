@@ -6,7 +6,7 @@ import Container from '../../../../components/container';
 
 
 function Voteds (props){
-  
+
   useFetch(async () => {
     if (props.items.length === 0 && !props.error){
       await props.load_voteds();
@@ -25,6 +25,7 @@ function Voteds (props){
     const viewportHeight = window.innerHeight;
     const fullHeight = document.getElementById('render_target').clientHeight;
     if ((scrolled + viewportHeight + 100) < fullHeight) return false;
+    if (props.items.length === 0) return false;
     props.load_voteds();
   }
 

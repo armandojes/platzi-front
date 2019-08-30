@@ -6,6 +6,8 @@ import { bindActionCreators } from 'redux';
 import { useFetch } from 'react-fetch-ssr';
 import PostBody from './components/post';
 import Container from '../../components/container'
+import hljs from 'highlight.js';
+
 
 function Post (props){
 
@@ -15,6 +17,10 @@ function Post (props){
   },[]);
 
   useEffect(() => () => {props.set_initial_state()},[]);
+
+  useEffect(() => {
+    hljs.initHighlighting();
+  });
 
   return typeof props.post === 'object'
   ? (<PostBody {...props.post} />)
