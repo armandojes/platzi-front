@@ -1,11 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Fragment } from 'react';
 import style from './style';
 import {connect} from 'react-redux';
 import { load_post, set_initial_state } from './ducks';
 import { bindActionCreators } from 'redux';
 import { useFetch } from 'react-fetch-ssr';
 import PostBody from './components/post';
-import Container from '../../components/container'
+import PostBodyLoading from './components/post/loading';
+import Container from '../../components/container';
+import PostPrimary from '../../components/post_primary';
+import PostPrimaryLoading from '../../components/post_primary/loading.jsx';
 import Highlight from 'react-highlight';
 import {renderToStaticMarkup} from 'react-dom/server';
 
@@ -19,23 +22,31 @@ function Post (props){
   useEffect(() => () => {props.set_initial_state()},[]);
 
   const postBodyHtml = renderToStaticMarkup(<PostBody {...props.post} />);
-  console.log(postBodyHtml);
-  return typeof props.post === 'object'
-  ? (
-    <Highlight innerHTML={true}>
-      {postBodyHtml}
-    </Highlight>
-  )
-  : (
+
+  if (typeof props.post === 'object'){
+    return (
+      <Fragment>
+        <PostPrimary {...props.post} />
+        <Highlight innerHTML={true}>
+          {postBodyHtml}
+        </Highlight>
+      </Fragment>
+    )
+  }
+
+  if (props.post === 'error') return (
     <Container>
-      {props.post === 'loading' && (
-        'cargando'
-      )}
-      {props.post === 'error' && (
-        'error 404 ppost no enciontrado'
-      )}
+      Error 404 post no encontrado
     </Container>
   )
+
+  return (
+    <Fragment>
+      <PostPrimaryLoading />
+      <PostBodyLoading />
+    </Fragment>
+  )
+
 }
 
 function mapStateToProps(state){

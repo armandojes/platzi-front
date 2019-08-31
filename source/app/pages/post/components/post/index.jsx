@@ -3,9 +3,11 @@ import style from './style';
 import Container from '../../../../components/container'
 function PostView (props){
   return (
-    <article>
+    <article className={style.wrapper}>
       <Container className={style.body}>
-        <div dangerouslySetInnerHTML={{__html: props.body}}/>
+        <div
+          className={style.content}
+          dangerouslySetInnerHTML={{__html: props.body}}/>
       </Container>
     </article>
   )
