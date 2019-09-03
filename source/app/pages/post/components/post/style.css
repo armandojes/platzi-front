@@ -1,13 +1,12 @@
 .content{
-
+  font-size: 1.1em;
+  line-height: 1.6em;
 }
 .wrapper{
   background: #fff;
 }
 .content p {
-  font-size: 1.1em;
   margin: 1em 0;
-  line-height: 1.6em;
 }
 .content blockquote{
   border-left: 0.6em solid #dfe1e3;
