@@ -1,7 +1,27 @@
 .content{
-  max-width: 830px;
-  margin: auto;
+
 }
 .wrapper{
   background: #fff;
+}
+.content p {
+  font-size: 1.1em;
+  margin: 1em 0;
+  line-height: 1.6em;
+}
+.content blockquote{
+  border-left: 0.6em solid #dfe1e3;
+  padding: 0.125em 1.6em;
+}
+.content h1, .content h2, .content h3, .content h4, .content h5{
+  margin: 1em 0;
+  line-height: 1.6em;
+}
+
+.content ul {
+  font-size: 1.1em;
+  line-height: 1.6em;
+  margin: 1em 0px;
+  margin-left: 1em;
+  padding-left: 1.5em;
 }
