@@ -6,6 +6,7 @@ import Container from '../../components/container';
 import PostPrimary from '../../components/post_primary';
 import PostPrimaryLoading from '../../components/post_primary/loading.jsx';
 import Autor from './components/autor';
+import Comments from './components/comments';
 
 
 function View (props){
@@ -16,6 +17,7 @@ function View (props){
         <PostPrimary {...props.post} />
         <PostBody {...props.post} />
         <Autor {...props.post} />
+        <Comments comments={props.comments} />
       </Fragment>
     )
   }

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import {connect} from 'react-redux';
-import { load_post, set_initial_state } from './ducks';
+import { load_post, set_initial_state, load_comments } from './ducks';
 import { bindActionCreators } from 'redux';
 import { useFetch } from 'react-fetch-ssr';
 import View from './view';
@@ -13,6 +13,10 @@ function Post (props){
   },[]);
 
   useEffect(() => () => {props.set_initial_state()},[]);
+
+  useEffect(() => {
+    props.load_comments(props.match.params.url);
+  },[]);
 
   return (
     <View {...props}/>
@@ -28,7 +32,7 @@ function mapStateToProps(state){
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({load_post, set_initial_state}, dispatch)
+  return bindActionCreators({load_post, set_initial_state, load_comments}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Post);

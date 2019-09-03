@@ -17,6 +17,17 @@ export const load_post = (id_post) => async (dispatch) => {
   }
 }
 
+
+export const load_comments  = (id_post) => async (dispatch) => {
+  dispatch(set_comments('loading'));
+  const response = await api.get_comments(id_post);
+  if (response.error){
+    dispatch(set_comments('error'));
+  } else {
+    dispatch(set_comments(response.data));
+  }
+}
+
 const [reducers, actions] = make_flux(initial_state, '/post');
 const {set_post, set_comments, set_initial_state} = actions;
 
