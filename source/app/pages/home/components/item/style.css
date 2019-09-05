@@ -9,6 +9,7 @@
   display: flex;
   color: #000;
   line-height: 1.5em;
+  border: 1px solid #fff;
 }
 .votes_content{
   min-width: 50px;
@@ -29,6 +30,9 @@
 }
 .description{
   margin-bottom: 10px;
+}
+.content:hover{
+  border: 1px solid #058ecd;
 }
 @media screen and (max-width:700px) {
   .description{
