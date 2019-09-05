@@ -12,12 +12,12 @@ function PostPrimary (props){
         <div className={style.body_loading}>
           <div className={style.data_content_loading}>
             <div className={style.votes_loading}>
-              <div className={`${style.button_like} b_color`}></div>
+              <div className={`${style.button_like} ${style.b_color}`}></div>
             </div>
             <div className={style.data_loading}>
-              <div className={`${style.title} b_color`}/>
-              <div className={`${style.title} b_color`}/>
-              <div className={`${style.metadata} b_color`} />
+              <div className={`${style.title} ${style.b_color}`}/>
+              <div className={`${style.title} ${style.b_color}`}/>
+              <div className={`${style.metadata} ${style.b_color}`} />
             </div>
           </div>
         </div>

@@ -1,6 +1,9 @@
 .content_loading{
-  background: #fff;
+  background: #cccccc;
   border-bottom: 2px solid #cdcdcd;
+}
+.b_color{
+  background-color: #fff;
 }
 .button_like{
   width: 40px;
