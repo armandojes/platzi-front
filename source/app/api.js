@@ -46,6 +46,12 @@ const api = {
       method: 'get',
     });
   },
+  get_posts_user(username, page){
+    return connect({
+      url: `/user/posts/${username}/${page}`,
+      method: 'get',
+    });
+  }
 
 }
 

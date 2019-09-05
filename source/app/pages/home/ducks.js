@@ -1,6 +1,6 @@
 import make_flux from '../../make_flux.js';
 import api from '../../api.js';
-import {combineReducers} from 'redux';
+import { combineReducers } from 'redux';
 
 const initial_state = {
   type: 'news',

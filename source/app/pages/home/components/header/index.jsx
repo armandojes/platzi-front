@@ -1,8 +1,32 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import style from './style';
 import Container from '../../../../components/container';
+import { withRouter } from 'react-router-dom';
+
 
 function Header (props) {
+
+  const input = useRef(null);
+
+  useEffect(() => {
+    input.current.focus();
+  })
+
+  function handleChange(e) {
+    if (props.match.path != '/'){
+      props.history.push('/')
+    }
+    if (props.type != 'search')
+    props.set_type('search')
+    props.set_query(e.target.value)
+  }
+
+  function handleChangeType(e){
+    if (props.match.path != '/'){
+      props.history.push('/')
+    }
+    props.set_type(e.target.value)
+  }
 
   return (
     <Container>
@@ -10,18 +34,21 @@ function Header (props) {
         {props.type === 'news' && ('Posts nuevos')}
         {props.type === 'voteds' && ('Mas votados')}
         {props.type === 'search' && ('Resultados')}
+        {props.type === 'postsuser' && (`@${props.match.params.username}`)}
       </div>
       <div className={style.controls_container}>
-        <select className={style.select} onChange={(e) => {props.set_type(e.target.value)}} value={props.type}>
+        <select className={style.select} onChange={handleChangeType} value={props.type}>
           <option className={style.option} value="news">Nuevos</option>
           <option className={style.option} value="voteds">Mas votados</option>
           {props.type === 'search' && (<option className={style.option} value="search">Resultados</option>)}
+          {props.type === 'postsuser' && (<option className={style.option} value="postsuser">Posts de usuario</option>)}
         </select>
         <form className={style.form}>
           <input type="search"
+            ref={input}
             className={style.search}
             placeholder="buscar post"
-            onChange={ e => {if (props.type != 'search') props.set_type('search'); props.set_query(e.target.value);}}
+            onChange={handleChange}
             value={props.query}
           />
           <div className={style.icon_serach_container}>
@@ -33,4 +60,4 @@ function Header (props) {
   );
 }
 
-export default Header;
+export default withRouter(Header);

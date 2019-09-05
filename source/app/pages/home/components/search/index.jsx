@@ -18,7 +18,7 @@ function Search (props){
   },[props.loading, props.current_page, props.num_pages])
 
   function handleScroll () {
-    console.log(props.current_page, props.num_pages)
+    
     if (props.current_page >= props.num_pages) return false;
     if (props.loading) return false;
     const scrolled = window.scrollY;
