@@ -21,6 +21,10 @@ function Posts (props){
     props.set_query(query);
   }
 
+  if (typeof window === 'undefined'){
+    props.set_type_single(type);
+  }
+
 
   return (
     <div role="page">
