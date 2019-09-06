@@ -56,22 +56,6 @@ export const load_voteds = () => async (dispatch, getState) => {
   dispatch(set_loading(false));
 }
 
-export const search = () => async (dispatch, getState) => {
-  dispatch(set_loading(true));
-  const state = getState();
-  const query  = state.pages.home.query;
-  const response = await api.get_result(query,1);
-  dispatch(set_items([]));
-  if (!response.error){
-    dispatch(set_items(response.items));
-    dispatch(set_num_pages(response.num_pages));
-    dispatch(set_num_items(response.num_items));
-    dispatch(set_current_page(1))
-  } else {
-    dispatch(set_error(true));
-  }
-  dispatch(set_loading(false));
-}
 
 export const load_search = () => async (dispatch, getState) => {
   dispatch(set_loading(true));

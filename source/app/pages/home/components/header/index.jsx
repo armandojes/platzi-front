@@ -18,6 +18,8 @@ function Header (props) {
     }
     if (props.type != 'search')
     props.set_type('search')
+    props.items.length > 0 && props.set_items([]);
+    props.current_page != 0 && props.set_current_page(0);
     props.set_query(e.target.value)
   }
 

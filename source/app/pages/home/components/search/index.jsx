@@ -7,10 +7,17 @@ import Container from '../../../../components/container';
 
 function Search (props){
 
+  useFetch(async () => {
+    if (typeof window === 'undefined'){
+      await props.load_search();
+    }
+  });
+
   useEffect(() => {
-    props.query.length > 1 && props.search();
-    props.query.length === 0 && props.set_type('news')
-  },[props.query]);
+    if (props.items.length === 0){
+      props.load_search();
+    }
+  },[props.query])
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -18,7 +25,7 @@ function Search (props){
   },[props.loading, props.current_page, props.num_pages])
 
   function handleScroll () {
-    
+
     if (props.current_page >= props.num_pages) return false;
     if (props.loading) return false;
     const scrolled = window.scrollY;
