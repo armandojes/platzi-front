@@ -21,13 +21,13 @@ function News (props){
   },[props.loading])
 
   function handleScroll () {
-    // if (props.loading) return false;
-    // const scrolled = window.scrollY;
-    // const viewportHeight = window.innerHeight;
-    // const fullHeight = document.getElementById('render_target').clientHeight;
-    // if ((scrolled + viewportHeight + 100) < fullHeight) return false;
-    // if (props.items.length === 0) return false;
-    // props.load_news();
+    if (props.loading) return false;
+    const scrolled = window.scrollY;
+    const viewportHeight = window.innerHeight;
+    const fullHeight = document.getElementById('render_target').clientHeight;
+    if ((scrolled + viewportHeight + 100) < fullHeight) return false;
+    if (props.items.length === 0) return false;
+    props.load_news();
   }
 
   return (

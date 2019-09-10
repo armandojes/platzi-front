@@ -26,14 +26,14 @@ function Search (props){
   },[props.loading, props.current_page, props.num_pages])
 
   function handleScroll () {
-    // if (props.current_page >= props.num_pages) return false;
-    // if (props.loading) return false;
-    // const scrolled = window.scrollY;
-    // const viewportHeight = window.innerHeight;
-    // const fullHeight = document.getElementById('render_target').clientHeight;
-    // if ((scrolled + viewportHeight + 100) < fullHeight) return false;
-    // if (props.items.length === 0) return false;
-    // props.load_search();
+    if (props.current_page >= props.num_pages) return false;
+    if (props.loading) return false;
+    const scrolled = window.scrollY;
+    const viewportHeight = window.innerHeight;
+    const fullHeight = document.getElementById('render_target').clientHeight;
+    if ((scrolled + viewportHeight + 100) < fullHeight) return false;
+    if (props.items.length === 0) return false;
+    props.load_search();
   }
 
   return (

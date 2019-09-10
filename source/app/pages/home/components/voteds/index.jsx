@@ -3,6 +3,7 @@ import { useFetch } from 'react-fetch-ssr';
 import Item from '../item'
 import ItemLoading from '../item/loading.jsx';
 import Container from '../../../../components/container';
+import PagesNavigator from '../../../../components/pages_navigator';
 
 
 function Voteds (props){
@@ -40,6 +41,11 @@ function Voteds (props){
       {props.loading && (
         <ItemLoading />
       )}
+      <PagesNavigator
+        num_pages={props.num_pages}
+        current_page={props.current_page}
+        path="/posts/voteds"
+      />
     </Container>
   )
 }

@@ -7,7 +7,11 @@ import { Link } from 'react-router-dom';
 function PagesNavigator (props) {
 
   const { num_pages, current_page, path } = props;
+  const [navigation, set_navigation] = useState(true);
 
+  useEffect(() => {
+    set_navigation(false);
+  }, [])
 
   const generate_list_pages = () => {
     var list_of_pages = [];
@@ -25,14 +29,16 @@ function PagesNavigator (props) {
 
   const pages = generate_list_pages();
 
+  if (!navigation) return null;
+
   return (
     <section className={style.wrapper}>
       <div className={style.content}>
         {current_page > 1 && (
           <Link
-            className={style.item}
+            className={`${style.item} ${style.nav_links}`}
             to={`${path}/${current_page - 1}`}>
-            &lt; Anterior
+            &lt; <span className={style.name_nav}>Anterior</span>
           </Link>
         )}
         <div className={style.pages_content}>
@@ -47,9 +53,9 @@ function PagesNavigator (props) {
         </div>
         {current_page < num_pages && (
           <Link
-            className={style.item}
+            className={`${style.item} ${style.nav_links}`}
             to={`${path}/${current_page + 1}`}>
-            Siguente &gt;
+            <span className={style.name_nav}>Siguente</span> &gt;
           </Link>
         )}
       </div>
