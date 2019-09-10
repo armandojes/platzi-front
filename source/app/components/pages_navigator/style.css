@@ -1,0 +1,35 @@
+.wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content{
+  background: #fff;
+  padding: 10px;
+  border-radius: 5px;
+}
+.item{
+  color: gray;
+  font-size: 1.05em;
+  font-weight: bold;
+  padding: 5px;
+  margin: 0px 10px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+.item:hover{
+  background-color: #058ecd;
+  color: #fff;
+}
+.item_selected{
+  background-color: #058ecd;
+  color: #fff;
+}
+.content{
+  display: flex;
+  align-items: center;
+}
+.pages_content{
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+}

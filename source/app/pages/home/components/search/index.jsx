@@ -4,6 +4,7 @@ import Item from '../item'
 import ItemLoading from '../item/loading.jsx';
 import NotResult from '../not_result';
 import Container from '../../../../components/container';
+import PagesNavigator from '../../../../components/pages_navigator';
 
 function Search (props){
 
@@ -25,15 +26,14 @@ function Search (props){
   },[props.loading, props.current_page, props.num_pages])
 
   function handleScroll () {
-
-    if (props.current_page >= props.num_pages) return false;
-    if (props.loading) return false;
-    const scrolled = window.scrollY;
-    const viewportHeight = window.innerHeight;
-    const fullHeight = document.getElementById('render_target').clientHeight;
-    if ((scrolled + viewportHeight + 100) < fullHeight) return false;
-    if (props.items.length === 0) return false;
-    props.load_search();
+    // if (props.current_page >= props.num_pages) return false;
+    // if (props.loading) return false;
+    // const scrolled = window.scrollY;
+    // const viewportHeight = window.innerHeight;
+    // const fullHeight = document.getElementById('render_target').clientHeight;
+    // if ((scrolled + viewportHeight + 100) < fullHeight) return false;
+    // if (props.items.length === 0) return false;
+    // props.load_search();
   }
 
   return (
@@ -48,6 +48,13 @@ function Search (props){
         <ItemLoading />
       )}
       {!props.loading && props.items.length === 0 && (<NotResult query={props.query} />)}
+      {props.items.length > 0 && (
+        <PagesNavigator
+          num_pages={props.num_pages}
+          current_page={props.current_page}
+          path={`/posts/search/${props.query}`}
+        />
+      )}
     </Container>
   )
 }
