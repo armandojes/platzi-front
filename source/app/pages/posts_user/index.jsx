@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import {load_posts, set_current_page} from './ducks';
+import {load_posts, set_current_page, set_initial_state} from './ducks';
 import Header from '../home/components/header';
 import { set_type, set_query } from '../home/ducks';
 import Container from '../../components/container';
@@ -22,6 +22,10 @@ function PostsUser(props) {
     if (props.items.length === 0)
     await props.load_posts(username);
   },[]);
+
+  useEffect(() => {
+    return () => {props.set_initial_state()}
+  },[username]);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -83,6 +87,6 @@ function mapStateToProps (state){
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({load_posts, set_type, set_query, set_current_page}, dispatch);
+  return bindActionCreators({set_initial_state, load_posts, set_type, set_query, set_current_page}, dispatch);
 }
 export default connect(mapStateToProps, mapDispatchToProps)(PostsUser);
