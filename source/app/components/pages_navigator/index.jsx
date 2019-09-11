@@ -9,6 +9,8 @@ function PagesNavigator (props) {
   const { num_pages, current_page, path } = props;
   const [navigation, set_navigation] = useState(true);
 
+
+
   useEffect(() => {
     set_navigation(false);
   }, [])
@@ -37,7 +39,7 @@ function PagesNavigator (props) {
         {current_page > 1 && (
           <Link
             className={`${style.item} ${style.nav_links}`}
-            to={`${path}/${current_page - 1}`}>
+            to={`${path}${current_page - 1}`}>
             &lt; <span className={style.name_nav}>Anterior</span>
           </Link>
         )}
@@ -45,7 +47,7 @@ function PagesNavigator (props) {
           {pages.map((page) => {
             const classname = page == current_page ? style.item_selected : '';
             return (
-              <Link className={`${style.item} ${classname}`} to={`${path}/${page}`} key={page} >
+              <Link className={`${style.item} ${classname}`} to={`${path}${page}`} key={page} >
                 {page}
               </Link>
             )
@@ -54,7 +56,7 @@ function PagesNavigator (props) {
         {current_page < num_pages && (
           <Link
             className={`${style.item} ${style.nav_links}`}
-            to={`${path}/${current_page + 1}`}>
+            to={`${path}${current_page + 1}`}>
             <span className={style.name_nav}>Siguente</span> &gt;
           </Link>
         )}

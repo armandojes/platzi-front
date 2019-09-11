@@ -44,7 +44,7 @@ function Voteds (props){
       <PagesNavigator
         num_pages={props.num_pages}
         current_page={props.current_page}
-        path="/posts/voteds"
+        path="/posts/voteds/"
       />
     </Container>
   )

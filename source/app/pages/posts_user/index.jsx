@@ -1,18 +1,22 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import {load_posts} from './ducks';
+import {load_posts, set_current_page} from './ducks';
 import Header from '../home/components/header';
 import { set_type, set_query } from '../home/ducks';
 import Container from '../../components/container';
 import Item from '../home/components/item'
 import ItemLoading from '../home/components/item/loading.jsx';
 import { useFetch } from 'react-fetch-ssr';
-
+import PageNavigator from '../../components/pages_navigator';
 
 function PostsUser(props) {
 
-  const {username} = props.match.params;
+  const {username, page = 1 } = props.match.params;
+
+  if (typeof window === 'undefined' && props.current_page == 0){
+    props.set_current_page(page - 1);
+  }
 
   useFetch(async () => {
     if (props.items.length === 0)
@@ -42,6 +46,7 @@ function PostsUser(props) {
         type="postsuser"
         set_type={props.set_type}
         set_query={props.set_query}
+        query={props.query}
       />
       <Container>
         {props.items.length > 0 && (
@@ -52,6 +57,13 @@ function PostsUser(props) {
         )}
         {props.loading && (
           <ItemLoading />
+        )}
+        {props.items.length > 0 && (
+          <PageNavigator
+            num_pages={props.num_pages}
+            current_page={props.current_page}
+            path={`/user/${username}/`}
+          />
         )}
       </Container>
     </div>
@@ -66,10 +78,11 @@ function mapStateToProps (state){
     loading: state.pages.posts_user.loading,
     error: state.pages.posts_user.error,
     current_page: state.pages.posts_user.current_page,
+    query: state.pages.home.query,
   };
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({load_posts, set_type, set_query}, dispatch);
+  return bindActionCreators({load_posts, set_type, set_query, set_current_page}, dispatch);
 }
 export default connect(mapStateToProps, mapDispatchToProps)(PostsUser);

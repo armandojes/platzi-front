@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import PostPrimary from '../../sections/post_primary';
+import parser_params from '../../utils/parser_params';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Header from '../home/components/header';
@@ -11,7 +12,11 @@ import { useFetch } from 'react-fetch-ssr';
 
 function Posts (props){
 
-  const {type, page, query = ''} = props.match.params;
+  let {type, page} = props.match.params;
+  const params = parser_params(props.location.search);
+  const query = params.query || '';
+  page = page ? page : (params.page || 1);
+
 
   if (typeof window === 'undefined' && props.current_page == 0){
     props.set_current_page(page - 1);

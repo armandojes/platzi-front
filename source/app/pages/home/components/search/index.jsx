@@ -52,7 +52,7 @@ function Search (props){
         <PagesNavigator
           num_pages={props.num_pages}
           current_page={props.current_page}
-          path={`/posts/search/${props.query}`}
+          path={`/posts/search?query=${props.query}&page=`}
         />
       )}
     </Container>

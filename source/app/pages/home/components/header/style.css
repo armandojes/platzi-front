@@ -7,6 +7,7 @@
   display: flex;
   justify-content: space-between;
   padding: 20px 0px;
+  align-items: center;
 }
 .select{
   height: 30px;
@@ -42,6 +43,23 @@
   padding: 10px;
   background: #0791e6;
   border-radius: 0px 5px 5px 0px;
+  border: none;
+}
+.anchor_ a {
+  border: 1px solid;
+  padding: 5px;
+  border-radius: 5px;
+}
+.anchor_ a:first-of-type{
+  margin-right: 10px;
+}
+.anchor_{
+  height: 30px;
+  color: #0791e6;
+  font-weight: bold;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
 }
 @media screen and (max-width:600px) {
   .title{
@@ -52,6 +70,9 @@
     align-items: center;
   }
   .select{
+    margin-bottom: 20px;
+  }
+  .anchor_{
     margin-bottom: 20px;
   }
 }

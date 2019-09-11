@@ -45,7 +45,7 @@ function News (props){
         <PagesNavigator
           num_pages={props.num_pages}
           current_page={props.current_page}
-          path="/posts/news"
+          path="/posts/news/"
         />
       )}
     </Container>

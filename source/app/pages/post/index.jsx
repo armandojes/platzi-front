@@ -15,6 +15,7 @@ function Post (props){
   useEffect(() => () => {props.set_initial_state()},[]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     props.load_comments(props.match.params.url);
   },[]);
 
