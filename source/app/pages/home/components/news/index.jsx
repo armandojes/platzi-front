@@ -4,7 +4,7 @@ import Item from '../item'
 import ItemLoading from '../item/loading.jsx';
 import Container from '../../../../components/container';
 import PagesNavigator from '../../../../components/pages_navigator';
-
+import { Helmet } from 'react-helmet';
 
 function News (props){
 
@@ -32,6 +32,12 @@ function News (props){
 
   return (
     <Container>
+      <Helmet>
+        <title>{`Platzi - blog `}</title>
+        <meta name="description" content="Tu mejor blog de tecnologia y programacion en español" />
+        <link rel="canonical" href={`${BASEURL}/posts/news/${props.current_page}`} />
+      </Helmet>
+
       {props.items.length > 0 && (
         props.items.map( item => <Item {...item} key={item.id}/>)
       )}

@@ -5,6 +5,8 @@ import ItemLoading from '../item/loading.jsx';
 import NotResult from '../not_result';
 import Container from '../../../../components/container';
 import PagesNavigator from '../../../../components/pages_navigator';
+import { Helmet } from 'react-helmet';
+
 
 function Search (props){
 
@@ -38,6 +40,11 @@ function Search (props){
 
   return (
     <Container>
+      <Helmet>
+        <title>{props.query}</title>
+        <meta name="description" content="Resultados de busqueda..." />
+        <link rel="canonical" href={`${BASEURL}/posts/search?query=${props.query}&page=${props.current_page}`} />
+      </Helmet>
       {props.items.length > 0 && (
         props.items.map( (item, index) => <Item {...item} key={index}/>)
       )}

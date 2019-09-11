@@ -9,6 +9,8 @@ import Item from '../home/components/item'
 import ItemLoading from '../home/components/item/loading.jsx';
 import { useFetch } from 'react-fetch-ssr';
 import PageNavigator from '../../components/pages_navigator';
+import {Helmet} from 'react-helmet'
+
 
 function PostsUser(props) {
 
@@ -45,6 +47,11 @@ function PostsUser(props) {
 
   return (
     <div role="page">
+      <Helmet>
+        <title>{`${username} posts`}</title>
+        <meta name="description" content={`Lista de posts de ${username}`} />
+        <link rel="canonical" href={`${BASEURL}/user/${username}/${page}`} />
+      </Helmet>
       <Header
         username={props.match.params.username}
         type="postsuser"

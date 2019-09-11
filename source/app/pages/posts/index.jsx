@@ -10,6 +10,8 @@ import Search from '../home/components/search'
 import {set_type, set_query, set_initial_state, load_news, load_search, load_voteds, set_current_page} from '../home/ducks';
 import { useFetch } from 'react-fetch-ssr';
 
+
+
 function Posts (props){
 
   let {type, page} = props.match.params;

@@ -2,13 +2,15 @@ import React from 'react';
 
 function Markup (props){
 
-
+  const { head } = props;
 
   return (
     <html lang="es">
       <head>
         <meta charSet="utf-8" />
-        <title>Platzi Blog</title>
+        {head.title.toComponent()}
+        {head.link.toComponent()}
+        {head.meta.toComponent()}
         <base href={BASEURL}/>
         <link rel="stylesheet" type="text/css" href={`${STATICURL}/build/style.css`} />
         <link rel="stylesheet" href="https://static.platzi.com/static/css/c/contribution-detail.43161e6709efa3001136.css.gz" />

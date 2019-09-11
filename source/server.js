@@ -9,7 +9,7 @@ import ReduxThunk from 'redux-thunk';
 import http from 'http'
 import reducer from './app/reducer'
 import renderToStringAsync from 'react-fetch-ssr';
-
+import Helmet from 'react-helmet';
 
 async function handleRequest(request, response){
 
@@ -27,11 +27,11 @@ async function handleRequest(request, response){
       </StaticRouter>
     </Provider>
   );
+  const head = Helmet.renderStatic();
   const state = store.getState();
-  const html = renderToStaticMarkup(<Markup content={contentRendered} state={state}/>);
+  const html = renderToStaticMarkup(<Markup content={contentRendered} state={state} head={head}/>);
   response.write(html);
   response.end();
-  console.log(request.url)
 }
 
 
