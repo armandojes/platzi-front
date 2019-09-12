@@ -1,0 +1,12 @@
+{
+  "name": "platzi",
+  "version": 2,
+  "builds": [
+    { "src": "./build/server.js", "use": "@now/node-server" },
+    { "src": "./build/*", "use": "@now/static"},
+  ],
+  "routes": [
+    { "src": "/build/(.*)","dest": "/build/$1" },
+    { "src": "(.*)", "dest": "/build/server.js" }
+  ]
+}
