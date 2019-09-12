@@ -13,21 +13,26 @@ function Header (props) {
     set_render_select(true);
   },[]);
 
+
   useEffect(() => {
     if (props.query.length > 0)
     input.current.focus();
   },[props.query])
 
+
   function handleChange(e) {
-    if (props.match.path != '/'){
-      props.history.push('/')
-    }
+
     if (props.type != 'search')
     props.set_type('search')
     props.items.length > 0 && props.set_items([]);
     props.current_page != 0 && props.set_current_page(0);
     props.set_query(e.target.value)
+    console.log(e.target.value)
+    if (props.match.path != '/'){
+      props.history.push('/')
+    }
   }
+
 
   function handleChangeType(e){
     if (props.match.path != '/'){
@@ -38,7 +43,7 @@ function Header (props) {
 
 
   function handleSubmit(e){
-    //e.preventDefault();
+    e.preventDefault();
   }
 
   return (

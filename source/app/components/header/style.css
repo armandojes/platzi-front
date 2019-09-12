@@ -3,6 +3,7 @@
   position: fixed;
   width: 100%;
   z-index: 10;
+  box-shadow: 0px 2px 5px #0a181fbd;
 }
 .shadow{
   height: 52px;

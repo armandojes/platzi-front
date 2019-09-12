@@ -11,7 +11,7 @@ function Header(props){
             <img src={`${STATICURL}/build/blog.png`} />
           </Link>
           <nav className={style.menu_content}>
-            <a href="https://platzi.com" className={style.link}>Platzi</a>
+            <a href="https://platzi.com" className={style.link} target="_blank">Platzi</a>
             <Link to="/about" href="https://platzi.com" className={style.link}>About</Link>
           </nav>
         </div>
