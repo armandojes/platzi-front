@@ -13,7 +13,7 @@ function Posts (props){
   return (
     <div role="page">
       <PostPrimary />
-      <Header {...props} />
+      <Header />
       {props.type === 'news' && (<News {...props}/>)}
       {props.type === 'search' && (<Search {...props}/>)}
       {props.type === 'voteds' && (<Voteds {...props}/>)}

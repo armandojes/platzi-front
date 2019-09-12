@@ -1,27 +1,30 @@
-import React, { useState, useRef, useEffect } from 'react';
-import style from './style';
-import Container from '../../../../components/container';
-import { withRouter } from 'react-router-dom';
+import React, { useEffect, useState, useRef } from 'react';
+import { connect } from 'react-redux';
+import View from './view.jsx';
+import {withRouter} from 'react-router-dom';
+import {set_type, set_query, set_items, set_current_page} from '../../ducks'
 
 
-function Header (props) {
-
-  const input = useRef(null);
+function Header (props){
+  const input_ref = useRef(null);
   const [renderSelect, set_render_select] = useState(false);
 
   useEffect(() => {
     set_render_select(true);
   },[]);
 
+  function handleChangeType(e){
+    if (props.match.path != '/'){
+      props.history.push('/')
+    }
+    props.set_type(e.target.value)
+  }
 
-  useEffect(() => {
-    if (props.query.length > 0)
-    input.current.focus();
-  },[props.query])
-
+  function handleSubmit(e){
+    e.preventDefault();
+  }
 
   function handleChange(e) {
-
     if (props.type != 'search')
     props.set_type('search')
     props.items.length > 0 && props.set_items([]);
@@ -33,59 +36,35 @@ function Header (props) {
     }
   }
 
-
-  function handleChangeType(e){
-    if (props.match.path != '/'){
-      props.history.push('/')
-    }
-    props.set_type(e.target.value)
-  }
-
-
-  function handleSubmit(e){
-    e.preventDefault();
-  }
-
   return (
-    <Container>
-      <div className={style.title}>
-        {props.type === 'news' && ('Posts nuevos')}
-        {props.type === 'voteds' && ('Mas votados')}
-        {props.type === 'search' && ('Resultados')}
-        {props.type === 'postsuser' && (`@${props.match.params.username}`)}
-      </div>
-      <div className={style.controls_container}>
-        {renderSelect && (
-          <select className={style.select} onChange={handleChangeType} value={props.type}>
-            <option className={style.option} value="news">Nuevos</option>
-            <option className={style.option} value="voteds">Mas votados</option>
-            {props.type === 'search' && (<option className={style.option} value="search">Resultados</option>)}
-            {props.type === 'postsuser' && (<option className={style.option} value="postsuser">Posts de usuario</option>)}
-          </select>
-        )}
-        {!renderSelect && (
-          <div className={style.anchor_}>
-            <a href="/posts/news/1">Nuevos</a>
-            <a href="/posts/voteds/1">Mas votados</a>
-          </div>
-        )}
-        <form className={style.form} method="get" action="/posts/search" onSubmit={handleSubmit}>
-          <input type="search"
-            ref={input}
-            className={style.search}
-            placeholder="buscar post"
-            onChange={handleChange}
-            value={props.query}
-            name="query"
-            autoComplete="off"
-          />
-          <button type="submit" className={style.icon_serach_container}>
-            <img src={`${STATICURL}/build/search.png`} className={style.search_icon} />
-          </button>
-        </form>
-      </div>
-    </Container>
-  );
+    <View
+      {...props}
+      renderSelect={renderSelect}
+      input_ref={input_ref}
+      handleChangeType={handleChangeType}
+      handleSubmit={handleSubmit}
+      handleChange={handleChange}
+    />
+  )
 }
 
-export default withRouter(Header);
+const dispatchToProps = {
+  set_type,
+  set_query,
+  set_items,
+  set_current_page,
+}
+
+function mapStateToProps (state){
+  return {
+    type: state.pages.home.type,
+    items: state.pages.home.items,
+    num_items: state.pages.home.num_items,
+    num_pages: state.pages.home.num_pages,
+    loading: state.pages.home.loading,
+    current_page: state.pages.home.current_page,
+    error: state.pages.home.error,
+  }
+}
+
+export default withRouter(connect(mapStateToProps, dispatchToProps)(Header))

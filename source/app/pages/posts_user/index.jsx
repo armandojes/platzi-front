@@ -52,13 +52,7 @@ function PostsUser(props) {
         <meta name="description" content={`Lista de posts de ${username}`} />
         <link rel="canonical" href={`${BASEURL}/user/${username}/${page}`} />
       </Helmet>
-      <Header
-        username={props.match.params.username}
-        type="postsuser"
-        set_type={props.set_type}
-        set_query={props.set_query}
-        query={props.query}
-      />
+      <Header />
       <Container>
         {props.items.length > 0 && (
           props.items.map( item => <Item {...item} key={item.id}/>)
