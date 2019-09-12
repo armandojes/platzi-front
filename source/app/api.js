@@ -1,7 +1,8 @@
 import axios from 'axios';
-//const base_url = 'https://platzi-blog.000webhostapp.com';
-const base_url = 'http://localhost:81';
 
+const base_url = process.env.NODE_ENV === 'production'
+  ? 'https://platzi-blog.000webhostapp.com'
+  : 'http://localhost:81'
 async function connect (config){
   config.url = `${base_url}${config.url}`
   const response = await axios(config);

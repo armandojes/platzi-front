@@ -7,6 +7,7 @@
     "watch": "set NODE_ENV=development&& webpack --watch --mode development",
     "build": "set NODE_ENV=production&& webpack -p --mode production",
     "server": "nodemon ./build/server.js",
+    "deploy": "now",
     "statics": "static-server -z --port 8080"
   },
   "keywords": [
