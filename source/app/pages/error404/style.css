@@ -1,0 +1,31 @@
+.page{
+  background: #14210a;
+  background-repeat: no-repeat;
+  background-position: center;
+
+}
+.body{
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.picture{
+  width: 300px;
+  display: block;
+  margin-bottom: 30px;
+}
+.title{
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 2em;
+  font-weight: bold;
+  color: #fff;
+}
+.sub_title{
+  font-size: 1.2em;
+  text-align: center;
+  font-weight: bold;
+  color: #fff;
+}

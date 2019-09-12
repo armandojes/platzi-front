@@ -7,6 +7,7 @@ import Posts from './pages/Posts';
 import Post from './pages/post';
 import Error404 from './pages/error404';
 import PostsUser from './pages/posts_user';
+import About from './pages/about';
 
 
 const App = () => (
@@ -14,6 +15,7 @@ const App = () => (
     <Header />
     <Switch>
       <Route path="/" exact component={Home} />
+      <Route path="/about" exact component={About} />
       <Route path="/post/:url" exact component={Post} />
       <Route path="/posts/:type/:page" exact component={Posts} />
       <Route path="/posts/:type" exact component={Posts} />
