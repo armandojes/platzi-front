@@ -1,4 +1,5 @@
 {
+  "alias": "platzi-blog",
   "name": "platzi",
   "version": 2,
   "builds": [
