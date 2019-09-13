@@ -1,20 +1,8 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import style from './style';
 import Container from '../../../../components/container';
-import {  } from 'react-router-dom';
-
 
 function Header (props) {
-
-
-
-
-  // useEffect(() => {
-  //   if (props.query.length > 0)
-  //   input.current.focus();
-  // },[props.query])
-
-
   return (
     <Container>
       <div className={style.title}>

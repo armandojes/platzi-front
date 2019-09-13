@@ -35,7 +35,6 @@ function mapStateToProps(state){
 
 function mapDispatchToProps(dispatch){
   return bindActionCreators({
-    set_type: (type) => (dispatch) => {dispatch(set_initial_state()); dispatch(set_type(type))},
     set_query,
     set_initial_state,
     load_news,

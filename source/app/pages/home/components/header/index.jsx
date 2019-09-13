@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { connect } from 'react-redux';
 import View from './view.jsx';
 import {withRouter} from 'react-router-dom';
-import {set_type, set_query, set_items, set_current_page} from '../../ducks'
+import {set_type,set_initial_state, set_query, set_items, set_current_page} from '../../ducks'
 
 
 function Header (props){
@@ -13,10 +13,13 @@ function Header (props){
     set_render_select(true);
   },[]);
 
+  useEffect(() => {
+    props.query.length && (input_ref.current.focus());
+  },[props.query])
+
   function handleChangeType(e){
-    if (props.match.path != '/'){
-      props.history.push('/')
-    }
+    props.match.path != '/' && (props.history.push('/'));
+    props.set_initial_state();
     props.set_type(e.target.value)
   }
 
@@ -25,14 +28,16 @@ function Header (props){
   }
 
   function handleChange(e) {
-    if (props.type != 'search')
-    props.set_type('search')
-    props.items.length > 0 && props.set_items([]);
-    props.current_page != 0 && props.set_current_page(0);
-    props.set_query(e.target.value)
-    console.log(e.target.value)
-    if (props.match.path != '/'){
-      props.history.push('/')
+    if (e.target.value.length){
+      props.type != 'search' && (props.set_type('search'));
+      props.items.length > 0 && (props.set_items([]));
+      props.current_page != 0 && (props.set_current_page(0));
+      props.match.path != '/' && (props.history.push('/'));
+      props.set_query(e.target.value)
+    } else {
+      props.match.path != '/' && (props.history.push('/'));
+      props.set_initial_state();
+      props.set_type('news');
     }
   }
 
@@ -53,11 +58,13 @@ const dispatchToProps = {
   set_query,
   set_items,
   set_current_page,
+  set_initial_state
 }
 
 function mapStateToProps (state){
   return {
     type: state.pages.home.type,
+    query: state.pages.home.query,
     items: state.pages.home.items,
     num_items: state.pages.home.num_items,
     num_pages: state.pages.home.num_pages,
