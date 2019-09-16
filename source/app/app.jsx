@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './components/header'
+import Scroll from './components/scroll'
 import './global_style';
 import {Switch, Route} from 'react-router';
 import Home from './pages/home';
@@ -23,6 +24,7 @@ const App = () => (
       <Route path="/user/:username/:page" exact component={PostsUser} />
       <Route  component={Error404} />
     </Switch>
+    <Scroll />
   </div>
 );
 
