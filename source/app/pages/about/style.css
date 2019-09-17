@@ -1,0 +1,19 @@
+.wrapper{
+  background: #fff;
+  padding-bottom: 10px;
+}
+.container_body{
+  border-radius: 5px;
+  border: 1px solid #cdcdcd;
+  max-width: 1000px;
+  margin:auto;
+  padding: 30px;
+  box-sizing: border-box;
+  margin: 25px auto;
+}
+.container_body section {
+  margin-bottom: 30px;
+}
+.container_body span {
+  font-weight: bold;
+}

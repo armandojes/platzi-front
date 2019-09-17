@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import style from './style';
-import Container from '../../../../components/container'
+import Title from '../title';
+import Parrafo from '../parrafo';
+
 
 
 function Alert (){
   return (
-    <Container>
-      <div className={style.body}>
-        Advertencia: Este proyecto no es oficial de Platzi, es solo un ejercicio de programacion
-      </div>
-    </Container>
+    <section>
+      <Title>
+        Advertencia:
+      </Title>
+      <Parrafo className={style.body}>
+        Este proyecto no es oficial de Platzi, es solo un ejercicio de programacion
+      </Parrafo>
+    </section>
   )
 }
 
