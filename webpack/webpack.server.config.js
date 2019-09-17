@@ -38,6 +38,7 @@ const config = {
       filename: "style.css"
     }),
     new webpack.DefinePlugin({
+      is_production: process.env.NODE_ENV === 'production' ? true : false,
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
       BASEURL: JSON.stringify(process.env.NODE_ENV === 'production' ? 'https://platzi-blog.now.sh' : 'http://localhost:3000'),
       STATICURL: JSON.stringify(process.env.NODE_ENV === 'production' ? 'https://platzi-blog.now.sh' : 'http://localhost:8080')

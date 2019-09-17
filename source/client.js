@@ -11,16 +11,15 @@ import reducer from './app/reducer.js';
 
 const preloaded_state = window.__PRELOADED_STATE__;
 
-//creano store
+const enhancer = is_production
+? applyMiddleware(ReduxThunk)
+: composeWithDevTools(applyMiddleware(ReduxThunk,logger));
+
+//creando store
 var store = createStore(
   reducer,
   preloaded_state,
-  composeWithDevTools(
-    applyMiddleware(
-      ReduxThunk,
-      logger
-    )
-  )
+  enhancer
 );
 
 
