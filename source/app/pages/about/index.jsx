@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './components/header';
 import Alert from './components/alert';
+import Firm from './components/firm';
 import History from './components/history';
 import BackEnd from './components/backend';
 import Finally from './components/finally';
@@ -20,6 +21,7 @@ function About (props){
           <FrontEnd />
           <Finally />
         </div>
+        <Firm />
       </Container>
     </div>
   )
