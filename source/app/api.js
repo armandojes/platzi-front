@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-const base_url = process.env.NODE_ENV === 'production'
-  ? 'https://platzi-blog.000webhostapp.com'
-  : 'http://localhost:81'
+//API CONST INJECTED FROM WEBPACK
+const base_url = API;
+
 async function connect (config){
   config.url = `${base_url}${config.url}`
   const response = await axios(config);

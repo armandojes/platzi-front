@@ -11,7 +11,7 @@ function History(){
         Después de mucho tiempo de jugar con código escribiendo aplicaciones web tradicionales con PHP y single page aplicaciones he sentido la curiosidad de aprender a profundidad una de las librerías para frontend más populares  reactJs, desde su integración con redux hasta SSR (server Side Render).
       </Parrafo>
       <Parrafo className={style.content}>
-        Al principio no tenía bien claro que aplicación construir, me pase algunas horas revisando los proyectos de platzi connect para tratando de inspirarme en alguno de los proyectos de la comunidad…
+        Al principio no tenía bien claro que aplicación construir, me pase algunas horas revisando los proyectos de platzi connect tratando de inspirarme en alguno de los proyectos de la comunidad…
       </Parrafo>
       <Parrafo className={style.content}>
         Después de leer varios artículos en el blog de platzi me llamo mucho la atención su diseño y en especial su contenido, construir un blog como ese sería el reto perfecto, así que me dije a mi mismo manos a la obra y he empezado a ocupar mi tiempo libre en crear una réplica del blog de platzi basado en la técnica de isomorphic application (técnica que  combina Server Side Render y Client Side Render).

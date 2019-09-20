@@ -4,7 +4,7 @@ import style from './style.css';
 function Firm (){
   return (
     <div>
-      Creado con 💚 para la comunidad de Platz. (Diganle a Christian y a Freddy que quiero trabajar con platzi)
+      Creado con 💚 para la comunidad de Platz. (Diganle a Christian y a Freddy que quiero trabajar con platzi 😉)
     </div>
   )
 }
