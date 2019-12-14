@@ -29,6 +29,8 @@ function Header (props){
   }
 
   function handleChange (e) {
+    window.scrollTo(0,200);
+    
     if (e.target.value.length){
       props.type != 'search' && (props.set_type('search'));
       props.items.length > 0 && (props.set_items([]));

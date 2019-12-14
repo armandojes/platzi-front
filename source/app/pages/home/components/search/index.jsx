@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, Fragment} from 'react';
 import { useFetch } from 'react-fetch-ssr';
 import Item from '../item'
 import ItemLoading from '../item/loading.jsx';
@@ -6,23 +6,19 @@ import NotResult from '../not_result';
 import Container from '../../../../components/container';
 import PagesNavigator from '../../../../components/pages_navigator';
 import { Helmet } from 'react-helmet';
-import debounce from '../../../../utils/debounce'
 
-var inDebounce;
 
 function Search (props){
   
   useFetch(async () => {
     if (typeof window === 'undefined'){
-      
       await props.load_search();
     }
   });
-
+  
   useEffect(() => {
     if (props.items.length === 0){
-      clearTimeout(inDebounce)
-      inDebounce = setTimeout(() => {props.load_search()}, 1000)
+      props.load_search();
     }
   },[props.query])
 
@@ -42,8 +38,6 @@ function Search (props){
     props.load_search();
   }
 
-  
-
   return (
     <Container>
       <Helmet>
@@ -55,7 +49,10 @@ function Search (props){
         props.items.map( (item, index) => <Item {...item} key={index}/>)
       )}
       {props.items.length === 0 && props.loading && (
-        <ItemLoading />
+        <Fragment>
+          <ItemLoading />
+          <ItemLoading />
+        </Fragment>
       )}
       {props.loading && (
         <ItemLoading />

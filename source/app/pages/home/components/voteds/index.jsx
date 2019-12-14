@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, Fragment} from 'react';
 import { useFetch } from 'react-fetch-ssr';
 import Item from '../item'
 import ItemLoading from '../item/loading.jsx';
@@ -42,7 +42,10 @@ function Voteds (props){
         props.items.map( item => <Item {...item} key={item.id}/>)
       )}
       {props.items.length === 0 && (
-        <ItemLoading />
+        <Fragment>
+          <ItemLoading />
+          <ItemLoading />
+        </Fragment>
       )}
       {props.loading && (
         <ItemLoading />
