@@ -6,19 +6,23 @@ import NotResult from '../not_result';
 import Container from '../../../../components/container';
 import PagesNavigator from '../../../../components/pages_navigator';
 import { Helmet } from 'react-helmet';
+import debounce from '../../../../utils/debounce'
 
+var inDebounce;
 
 function Search (props){
-
+  
   useFetch(async () => {
     if (typeof window === 'undefined'){
+      
       await props.load_search();
     }
   });
 
   useEffect(() => {
     if (props.items.length === 0){
-      props.load_search();
+      clearTimeout(inDebounce)
+      inDebounce = setTimeout(() => {props.load_search()}, 1000)
     }
   },[props.query])
 
@@ -37,6 +41,8 @@ function Search (props){
     if (props.items.length === 0) return false;
     props.load_search();
   }
+
+  
 
   return (
     <Container>

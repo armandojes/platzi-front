@@ -1,6 +1,7 @@
 import make_flux from '../../make_flux.js';
 import api from '../../api.js';
 import { combineReducers } from 'redux';
+import debounce from '../../utils/debounce'
 
 const initial_state = {
   type: 'news',
@@ -38,7 +39,7 @@ export const load_news = () => async (dispatch, getState) => {
     dispatch(set_error(true));
   }
   dispatch(set_loading(false));
-}
+};
 
 export const load_voteds = () => async (dispatch, getState) => {
   dispatch(set_loading(true));

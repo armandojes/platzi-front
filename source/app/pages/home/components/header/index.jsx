@@ -8,6 +8,7 @@ import {set_type,set_initial_state, set_query, set_items, set_current_page} from
 function Header (props){
   const input_ref = useRef(null);
   const [renderSelect, set_render_select] = useState(false);
+  
 
   useEffect(() => {
     set_render_select(true);
@@ -27,7 +28,7 @@ function Header (props){
     e.preventDefault();
   }
 
-  function handleChange(e) {
+  function handleChange (e) {
     if (e.target.value.length){
       props.type != 'search' && (props.set_type('search'));
       props.items.length > 0 && (props.set_items([]));
