@@ -4,7 +4,7 @@ import style from './style.css';
 function Firm (){
   return (
     <div>
-      Creado con 💚 para la comunidad de Platz. (Diganle a Christian y a Freddy que quiero trabajar con platzi 😉)
+      Creado con 💚 por <a href="https://armandodejesus.now.sh" target="_blank">Armando</a> para la comunidad de Platzi. (Diganle a Christian y a Freddy que quiero trabajar para platzi 😉).
     </div>
   )
 }
