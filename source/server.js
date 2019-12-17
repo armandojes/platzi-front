@@ -8,8 +8,10 @@ import { createStore, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk';
 import http from 'http'
 import reducer from './app/reducer'
-import renderToStringAsync from 'react-fetch-ssr';
+import {renderToStringAsync} from 'react-fetch-ssr';
 import Helmet from 'react-helmet';
+
+
 
 async function handleRequest(request, response){
 
