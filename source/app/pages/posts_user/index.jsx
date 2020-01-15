@@ -49,8 +49,7 @@ function PostsUser(props) {
     <div role="page">
       <Helmet>
         <title>{`${username} posts`}</title>
-        <meta name="description" content={`Lista de posts de ${username}`} />
-        <link rel="canonical" href={`${BASEURL}/user/${username}/${page}`} />
+        <meta name="description" content={`Posts - ${username}`} />
       </Helmet>
       <Header />
       <Container>

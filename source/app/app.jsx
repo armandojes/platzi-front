@@ -9,10 +9,11 @@ import Post from './pages/post';
 import Error404 from './pages/error404';
 import PostsUser from './pages/posts_user';
 import About from './pages/about';
-
+import Head from './components/head';
 
 const App = () => (
   <div role="aplication">
+    <Head />
     <Header />
     <Switch>
       <Route path="/" exact component={Home} />

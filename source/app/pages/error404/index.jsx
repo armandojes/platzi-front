@@ -1,6 +1,7 @@
 import React from 'react';
 import style from './style';
 import Container from '../../components/container'
+import Head from '../../components/head'
 
 function Error404 (props){
   return (
@@ -9,6 +10,7 @@ function Error404 (props){
       className={style.page}
       style={{backgroundImage: `url(${STATICURL}/build/stars-pttnr.webp)`}}>
       <Container>
+        <Head title="Error 404" />
         <div className={style.body}>
           <img src={`${STATICURL}/build/not_found.webp`} className={style.picture}/>
           <h1 className={style.title}>Hmmm!</h1>

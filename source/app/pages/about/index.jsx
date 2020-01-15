@@ -9,10 +9,12 @@ import FrontEnd from './components/frontend';
 import SSR from './components/SSR';
 import style from './style';
 import Container from '../../components/container'
+import Head from '../../components/head'
 
 function About (props){
   return (
     <div className={style.wrapper}>
+      <Head title="About platzi" />
       <Header />
       <Container>
         <div className={style.container_body}>
