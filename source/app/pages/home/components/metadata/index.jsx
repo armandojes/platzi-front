@@ -7,15 +7,15 @@ function MetaData (props){
   return (
     <div className={style.content}>
       <div className={`${style.items} ${style.bold}`}>
-        <img src={props.avatar} className={style.avatar}/>
+        <img src={props.avatar} className={style.avatar} alt="avatar"/>
         {props.username}
       </div>
       <div className={style.items}>
-        <img src={`${STATICURL}/build/clock_gray.png`} className={style.icon}/>
+        <img src={`${STATICURL}/build/clock_gray.png`} className={style.icon} alt="time"/>
         {props.created_at}
       </div>
       <div className={`${style.items} ${style.comments}`}>
-        <img src={`${STATICURL}/build/comments.png`} className={style.icon}/>
+        <img src={`${STATICURL}/build/comments.png`} className={style.icon} alt="comments"/>
         {props.comments || 0} comentarios
       </div>
     </div>

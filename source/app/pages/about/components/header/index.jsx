@@ -9,7 +9,7 @@ function Header (){
       <Container>
         <div className={style.body}>
           <div className={style.title_wrapper}>
-            <img className={style.icon} src={`${STATICURL}/build/icon.png`} />
+            <img className={style.icon} src={`${STATICURL}/build/icon.png`} alt="icon"/>
             Platzi blog
           </div>
           <div className={style.description_wrapper}>

@@ -11,7 +11,7 @@ import {set_items, set_type, set_query, set_initial_state, load_news, load_searc
 
 function Posts (props){
   return (
-    <div role="page">
+    <div>
       <PostPrimary />
       <Header />
       {props.type === 'news' && (<News {...props}/>)}

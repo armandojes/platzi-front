@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fagment } from 'react';
 
 function Markup (props){
 
@@ -7,13 +7,14 @@ function Markup (props){
   return (
     <html lang="es">
       <head>
+        <link  rel="icon"   href={`${STATICURL}/build/icon.png`} type="image/png" />
         <meta charSet="utf-8" />
         {head.title.toComponent()}
         {head.link.toComponent()}
         {head.meta.toComponent()}
         <base href={BASEURL}/>
         <link rel="stylesheet" type="text/css" href={`${STATICURL}/build/style.css`} />
-        <meta name="viewport" content="width=device-width, user-scalable=no" />
+        <meta name="viewport" content="width=device-width, user-scalable=yes" />
       </head>
       <body>
         <div id="render_target" dangerouslySetInnerHTML={{__html: props.content}}></div>

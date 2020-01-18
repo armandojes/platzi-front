@@ -32,6 +32,7 @@ function Scroll(){
     <img src={`${STATICURL}/build/arrow_up.png`}
       className={style.icon}
       onClick={handleClick}
+      alt="arrow"
     />
   )
 }

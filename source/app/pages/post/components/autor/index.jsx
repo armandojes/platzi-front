@@ -10,7 +10,7 @@ function Autor (props) {
     <Container>
       <Limiter>
         <div className={style.body}>
-          <img className={style.avatar} src={props.avatar} />
+          <img className={style.avatar} src={props.avatar} alt="avatar" />
           <div className={style.element}>
             {props.username}
           </div>
@@ -18,7 +18,7 @@ function Autor (props) {
             {props.points} puntos
           </div>
           <div className={style.element}>
-            <img className={style.icon} src={`${STATICURL}/build/clock_gray.png`} />
+            <img className={style.icon} src={`${STATICURL}/build/clock_gray.png`} alt="time past"/>
             {props.created_at}
           </div>
           <div className={style.element}>

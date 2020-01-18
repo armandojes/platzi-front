@@ -5,14 +5,14 @@ import Head from '../../components/head'
 
 function Error404 (props){
   return (
-    <div role="page"
+    <div
       name="error404"
       className={style.page}
       style={{backgroundImage: `url(${STATICURL}/build/stars-pttnr.webp)`}}>
       <Container>
         <Head title="Error 404" />
         <div className={style.body}>
-          <img src={`${STATICURL}/build/not_found.webp`} className={style.picture}/>
+          <img src={`${STATICURL}/build/not_found.webp`} className={style.picture} alt="error 404"/>
           <h1 className={style.title}>Hmmm!</h1>
           <h2 className={style.sub_title}>No encontramos lo que buscabas!</h2>
         </div>

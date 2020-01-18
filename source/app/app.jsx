@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import Header from './components/header'
 import Scroll from './components/scroll'
 import './global_style';
@@ -12,7 +12,7 @@ import About from './pages/about';
 import Head from './components/head';
 
 const App = () => (
-  <div role="aplication">
+  <Fragment>
     <Head />
     <Header />
     <Switch>
@@ -26,7 +26,7 @@ const App = () => (
       <Route  component={Error404} />
     </Switch>
     <Scroll />
-  </div>
+  </Fragment>
 );
 
 export default App;

@@ -43,8 +43,8 @@ function Header (props) {
             name="query"
             autoComplete="off"
           />
-          <button type="submit" className={style.icon_serach_container}>
-            <img src={`${STATICURL}/build/search.png`} className={style.search_icon} />
+          <button type="submit" className={style.icon_serach_container} aria-label="search">
+            <img src={`${STATICURL}/build/search.png`} className={style.search_icon} alt="search"/>
           </button>
         </form>
       </div>
