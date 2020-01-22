@@ -14,7 +14,7 @@ function Markup (props){
         {head.meta.toComponent()}
         <base href={BASEURL}/>
         <link rel="stylesheet" type="text/css" href={`${STATICURL}/build/style.css`} />
-        <meta name="viewport" content="width=device-width, user-scalable=yes" />
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
       </head>
       <body>
         <div id="render_target" dangerouslySetInnerHTML={{__html: props.content}}></div>
