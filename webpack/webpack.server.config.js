@@ -42,7 +42,7 @@ const config = {
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
       BASEURL: JSON.stringify(process.env.NODE_ENV === 'production' ? 'https://platzi-blog.now.sh' : 'http://localhost:3000'),
       STATICURL: JSON.stringify(process.env.NODE_ENV === 'production' ? 'https://platzi-blog.now.sh' : 'http://localhost:8080'),
-      API: JSON.stringify(process.env.NODE_ENV === 'production' ? 'https://api-blog-test.000webhostapp.com/' : 'https://api-blog-test.000webhostapp.com'),
+      API: JSON.stringify(process.env.NODE_ENV === 'production' ? 'https://platziserver.000webhostapp.com/' : 'https://platziserver.000webhostapp.com/'),
     })
   ],
   target: 'node',
