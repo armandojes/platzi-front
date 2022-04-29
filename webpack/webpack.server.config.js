@@ -5,8 +5,8 @@ const webpack = require('webpack');
 const config = {
   entry: ["@babel/polyfill", path.resolve(__dirname, '../source/server.js')],
   output: {
-    path: path.resolve(__dirname, '../build'),
-    filename: 'server.js'
+    path: path.resolve(__dirname, '../api'),
+    filename: 'main.js'
   },
 
   module: {
@@ -40,8 +40,8 @@ const config = {
     new webpack.DefinePlugin({
       is_production: process.env.NODE_ENV === 'production' ? true : false,
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-      BASEURL: JSON.stringify(process.env.NODE_ENV === 'production' ? 'https://platzi-blog.now.sh' : 'http://localhost:3000'),
-      STATICURL: JSON.stringify(process.env.NODE_ENV === 'production' ? 'https://platzi-blog.now.sh' : 'http://localhost:8080'),
+      BASEURL: JSON.stringify(process.env.NODE_ENV === 'production' ? 'https://platzi-blog.vercel.app/' : 'http://localhost:3000'),
+      STATICURL: JSON.stringify(process.env.NODE_ENV === 'production' ? 'https://platzi-blog.vercel.app/' : 'http://localhost:8080'),
       API: JSON.stringify(process.env.NODE_ENV === 'production' ? 'https://platziserver.000webhostapp.com/' : 'https://platziserver.000webhostapp.com/'),
     })
   ],

@@ -1,0 +1,9 @@
+{
+  "alias": "platzi-blog",
+  "name": "platzi",
+  "version": 2,
+  "rewrites": [
+    { "source": "/build/(.*)","destination": "/build/$1" },
+    { "source": "(.*)", "destination": "/api/main.js" }
+  ]
+}

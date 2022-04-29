@@ -6,8 +6,8 @@
   "scripts": {
     "watch": "set NODE_OPTIONS=--openssl-legacy-provider&& set NODE_ENV=development&& webpack --watch --mode development",
     "build": "set NODE_OPTIONS=--openssl-legacy-provider&& set NODE_ENV=production&& webpack -p --mode production",
-    "server": "nodemon ./build/server.js",
-    "deploy": "npm run build && now --prod",
+    "server": "nodemon ./api/main.js",
+    "deploy": "npm run build && vercel --prod",
     "statics": "static-server -z --port 8080"
   },
   "keywords": [
@@ -30,6 +30,7 @@
     "reset-css": "4.0.1",
     "static-server": "2.2.1",
     "style-loader": "0.23.1",
+    "vercel": "^24.2.0",
     "webpack": "4.39.2",
     "webpack-cli": "3.3.6"
   },
