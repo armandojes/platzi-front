@@ -2,5 +2,6 @@ node_modules
 build/style.css
 build/server.js
 build/client.js
+build/client.js.LICENSE.txt
 api
 .vercel

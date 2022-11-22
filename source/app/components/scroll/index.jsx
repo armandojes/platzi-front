@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import style from './style';
-import animateScrollTo from 'animated-scroll-to';
 
 
 function Scroll(){
@@ -23,7 +22,7 @@ function Scroll(){
   }
 
   function handleClick(e){
-    animateScrollTo(0);
+    window.scrollTo({ left: 0, top: 0, behavior: 'smooth' })
   }
 
   if (!render) return null;

@@ -10,7 +10,6 @@ import About from './pages/about';
 import Head from './components/head';
 import './global_style';
 
-
 const App = () => (
   <Fragment>
     <Head />

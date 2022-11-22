@@ -3,7 +3,7 @@ const extract = require('mini-css-extract-plugin')
 const webpack = require('webpack');
 
 const config = {
-  entry: ["@babel/polyfill", path.resolve(__dirname, '../source/client.js')],
+  entry: path.resolve(__dirname, '../source/client.js'),
   output: {
     path: path.resolve(__dirname, '../build'),
     filename: 'client.js'
@@ -12,11 +12,25 @@ const config = {
   module: {
     rules: [
       {
+        test: /\.m?js/,
+        resolve: {
+          fullySpecified: false
+        }
+      },
+      {
         test: /\.jsx?$/,
         loader: "babel-loader",
         exclude: "/(node_modules)/",
         options: {
-          presets: ['@babel/preset-env','@babel/preset-react'],
+          presets: [
+            [
+              '@babel/preset-env',
+              {
+                targets: "node 16"
+              }
+            ],
+            '@babel/preset-react'
+          ],
         },
       },
       {
@@ -31,7 +45,7 @@ const config = {
     ]
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.css']
+    extensions: ['.js', '.jsx', '.css', '.mjs']
   },
   plugins: [
     new extract({
@@ -39,7 +53,6 @@ const config = {
     }),
     new webpack.DefinePlugin({
       is_production: process.env.NODE_ENV === 'production' ? 'true' : 'false',
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
       BASEURL: JSON.stringify(process.env.NODE_ENV === 'production' ? 'https://platzi-blog.vercel.app' : 'http://localhost:3000'),
       STATICURL: JSON.stringify(process.env.NODE_ENV === 'production' ? 'https://platzi-blog.vercel.app' : 'http://localhost:8080'),
     })

@@ -8,6 +8,7 @@ import ReduxThunk from 'redux-thunk';
 import logger from 'redux-logger'
 import { composeWithDevTools } from 'redux-devtools-extension';
 import reducer from './app/reducer.js';
+import { disableReactDevTools } from '@fvilers/disable-react-devtools'
 
 const preloaded_state = window.__PRELOADED_STATE__;
 
@@ -21,6 +22,8 @@ var store = createStore(
   preloaded_state,
   enhancer
 );
+
+if (is_production) disableReactDevTools();
 
 
 hydrate(
