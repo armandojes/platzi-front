@@ -24,6 +24,8 @@ function View (props){
         <PostBody {...props.post} />
         <Autor {...props.post} />
         <Comments comments={props.comments} />
+        <link defer rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/styles/monokai.min.css" />
+        <link defer rel="stylesheet" href="https://static.platzi.com/static/css/c/contribution-detail.43161e6709efa3001136.css.gz" />
       </Fragment>
     )
   }

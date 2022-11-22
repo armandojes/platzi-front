@@ -32,7 +32,7 @@ async function handleRequest(request, response){
   const head = Helmet.renderStatic();
   const state = store.getState();
   const html = renderToStaticMarkup(<Markup content={contentRendered} state={state} head={head}/>);
-  response.write(html);
+  response.write(`<!DOCTYPE html>${html}`);
   response.end();
 }
 
