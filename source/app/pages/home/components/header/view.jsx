@@ -8,7 +8,6 @@ function Header (props) {
       <div className={style.title}>
         {props.type === 'news' && ('Posts nuevos')}
         {props.type === 'voteds' && ('Mas votados')}
-        {props.type === 'search' && ('Resultados')}
         {props.type === 'postsuser' && (`@${props.match.params.username}`)}
       </div>
       <div className={style.controls_container}>
@@ -29,24 +28,6 @@ function Header (props) {
             <a href="/posts/voteds/1">Mas votados</a>
           </div>
         )}
-        <form
-          className={style.form}
-          method="get"
-          onSubmit={props.handleSubmit}
-          action="/posts/search">
-          <input type="search"
-            ref={props.input_ref}
-            className={style.search}
-            placeholder="buscar post"
-            onChange={props.handleChange}
-            value={props.query}
-            name="query"
-            autoComplete="off"
-          />
-          <button type="submit" className={style.icon_serach_container} aria-label="search">
-            <img src={`${STATICURL}/build/search.png`} className={style.search_icon} alt="search"/>
-          </button>
-        </form>
       </div>
     </Container>
   );

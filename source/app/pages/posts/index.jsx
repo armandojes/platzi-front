@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PostPrimary from '../../sections/post_primary';
 import parser_params from '../../utils/parser_params';
 import { connect } from 'react-redux';
@@ -6,27 +6,14 @@ import { bindActionCreators } from 'redux';
 import Header from '../home/components/header';
 import News from '../home/components/news'
 import Voteds from '../home/components/voteds'
-import Search from '../home/components/search'
-import {set_type, set_query, set_initial_state, load_news, load_search, load_voteds, set_current_page} from '../home/ducks';
-import { useFetch } from 'react-fetch-ssr';
+import {set_type, set_initial_state, load_news, load_voteds} from '../home/ducks';
 
 
 
 function Posts (props){
-
   let {type, page} = props.match.params;
   const params = parser_params(props.location.search);
-  const query = params.query || '';
   page = page ? page : (params.page || 1);
-
-
-  if (typeof window === 'undefined' && props.current_page == 0){
-    props.set_current_page(page - 1);
-  }
-
-  if (typeof window === 'undefined'){
-    props.set_query(query);
-  }
 
   if (typeof window === 'undefined'){
     props.set_type_single(type);
@@ -38,7 +25,6 @@ function Posts (props){
       <PostPrimary />
       <Header {...props} />
       {type === 'news' && (<News {...props}/>)}
-      {type === 'search' && (<Search {...props}/>)}
       {type === 'voteds' && (<Voteds {...props}/>)}
     </div>
   )
@@ -60,12 +46,9 @@ function mapDispatchToProps(dispatch){
   return bindActionCreators({
     set_type_single: set_type,
     set_type: (type) => (dispatch) => {dispatch(set_initial_state()); dispatch(set_type(type))},
-    set_query,
     set_initial_state,
     load_news,
-    load_search,
     load_voteds,
-    set_current_page,
   }, dispatch);
 }
 

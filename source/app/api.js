@@ -11,12 +11,6 @@ async function connect (config){
 
 
 const api = {
-  get_result(query, page){
-    return connect({
-      url: encodeURI(`/search/${query}/${page}`),
-      method: 'get'
-    });
-  },
   get_list (page = 1){
     return connect({
       url: `/posts/${page}`,

@@ -5,8 +5,7 @@ import Header from './components/header';
 import { bindActionCreators } from 'redux';
 import News from './components/news'
 import Voteds from './components/voteds'
-import Search from './components/search'
-import {set_items, set_type, set_query, set_initial_state, load_news, load_search, load_voteds, set_current_page} from './ducks';
+import {set_items, set_initial_state, load_news, load_voteds } from './ducks';
 
 
 function Posts (props){
@@ -15,7 +14,6 @@ function Posts (props){
       <PostPrimary />
       <Header />
       {props.type === 'news' && (<News {...props}/>)}
-      {props.type === 'search' && (<Search {...props}/>)}
       {props.type === 'voteds' && (<Voteds {...props}/>)}
     </div>
   )
@@ -35,13 +33,10 @@ function mapStateToProps(state){
 
 function mapDispatchToProps(dispatch){
   return bindActionCreators({
-    set_query,
     set_initial_state,
     load_news,
-    load_search,
     load_voteds,
     set_items,
-    set_current_page,
   }, dispatch);
 }
 

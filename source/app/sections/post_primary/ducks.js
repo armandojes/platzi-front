@@ -4,13 +4,13 @@ const initial_state = {
 }
 
 import make_flux from '../../make_flux.js';
-import api from '../../api.js';
+import apiFirestore from '../../firesstoreApi.js';
 import {combineReducers} from 'redux';
 
 export const load_primary_post = () => async (dispatch) => {
   dispatch(set_loading(true));
-  const response = await api.get_primary();
-  dispatch(set_data(response.data));
+  const response = await apiFirestore.fetchSingle({ collection: 'post_primary', url: 'primary_post' });
+  dispatch(set_data(response));
   dispatch(set_loading(false));
 }
 
