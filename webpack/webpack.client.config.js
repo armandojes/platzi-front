@@ -2,6 +2,7 @@ const path = require('path');
 const extract = require('mini-css-extract-plugin')
 const webpack = require('webpack');
 const TerserPlugin = require("terser-webpack-plugin");
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const config = {
   entry: path.resolve(__dirname, '../source/client.js'),
@@ -59,7 +60,8 @@ const config = {
       is_production: process.env.NODE_ENV === 'production' ? 'true' : 'false',
       BASEURL: JSON.stringify(process.env.NODE_ENV === 'production' ? 'https://platzi-blog.vercel.app' : 'http://localhost:3000'),
       STATICURL: JSON.stringify(process.env.NODE_ENV === 'production' ? 'https://platzi-blog.vercel.app' : 'http://localhost:8080'),
-    })
+    }),
+    // new BundleAnalyzerPlugin(),
   ],
   target: 'web',
 }
