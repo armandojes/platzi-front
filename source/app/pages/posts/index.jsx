@@ -11,9 +11,7 @@ import {set_type, set_initial_state, load_news, load_voteds} from '../home/ducks
 
 
 function Posts (props){
-  let {type, page} = props.match.params;
-  const params = parser_params(props.location.search);
-  page = page ? page : (params.page || 1);
+  let { type } = props.match.params;
 
   if (typeof window === 'undefined'){
     props.set_type_single(type);
@@ -35,17 +33,12 @@ function mapStateToProps(state){
     loading: state.pages.home.loading,
     items: state.pages.home.items,
     type: state.pages.home.type,
-    query: state.pages.home.query,
-    num_pages: state.pages.home.num_pages,
-    num_items: state.pages.home.num_items,
-    current_page: state.pages.home.current_page,
   }
 }
 
 function mapDispatchToProps(dispatch){
   return bindActionCreators({
     set_type_single: set_type,
-    set_type: (type) => (dispatch) => {dispatch(set_initial_state()); dispatch(set_type(type))},
     set_initial_state,
     load_news,
     load_voteds,

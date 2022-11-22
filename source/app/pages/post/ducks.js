@@ -1,5 +1,4 @@
 import make_flux from '../../make_flux.js';
-import api from '../../api.js';
 import apiFirestore from '../../firesstoreApi.js';
 import {combineReducers} from 'redux';
 
@@ -16,9 +15,9 @@ export const load_post = (url) => async (dispatch) => {
 
 
 export const load_comments  = (id_post) => async (dispatch) => {
-  dispatch(set_comments('loading'));
-  const response = await api.get_comments(id_post);
-  dispatch(set_comments(response.data));
+  // dispatch(set_comments('loading'));
+  // const response = await api.get_comments(id_post);
+  // dispatch(set_comments(response.data));
 }
 
 const [reducers, actions] = make_flux(initial_state, '/post');

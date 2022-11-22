@@ -1,5 +1,4 @@
 import make_flux from '../../make_flux.js';
-import api from '../../api.js';
 import apiFirestore from '../../firesstoreApi.js';
 import { combineReducers } from 'redux';
 import firesstoreApi from '../../firesstoreApi.js';
