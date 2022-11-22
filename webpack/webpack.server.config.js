@@ -42,7 +42,6 @@ const config = {
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
       BASEURL: JSON.stringify(process.env.NODE_ENV === 'production' ? 'https://platzi-blog.vercel.app' : 'http://localhost:3000'),
       STATICURL: JSON.stringify(process.env.NODE_ENV === 'production' ? 'https://platzi-blog.vercel.app' : 'http://localhost:8080'),
-      API: JSON.stringify(process.env.NODE_ENV === 'production' ? 'https://platzimaster.000webhostapp.com/' : 'https://platzimaster.000webhostapp.com/'),
     })
   ],
   target: 'node',
