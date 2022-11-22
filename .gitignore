@@ -3,5 +3,4 @@ build/style.css
 build/server.js
 build/client.js
 api
-package-lock.json
 .vercel
