@@ -1,6 +1,7 @@
 const path = require('path');
 const extract = require('mini-css-extract-plugin')
 const webpack = require('webpack');
+const TerserPlugin = require("terser-webpack-plugin");
 
 const config = {
   entry: path.resolve(__dirname, '../source/server.js'),
@@ -8,7 +9,10 @@ const config = {
     path: path.resolve(__dirname, '../api'),
     filename: 'main.js'
   },
-
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin()],
+  },
   module: {
     rules: [
       {
