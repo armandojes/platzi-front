@@ -4,8 +4,8 @@
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
-    "watch": "set NODE_ENV=development&& webpack --watch --mode development",
-    "build": "set NODE_ENV=production&& webpack --mode production",
+    "watch": "export NODE_ENV=development&& webpack --watch --mode development",
+    "build": "export NODE_ENV=production&& webpack --mode production",
     "server": "nodemon ./api/main.js",
     "deploy": "npm run build && vercel --prod",
     "statics": "static-server -z --port 8080"

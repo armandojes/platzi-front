@@ -9,6 +9,7 @@ function Markup (props){
       <head>
         <link  rel="icon"   href={`${STATICURL}/build/icon.png`} type="image/png" />
         <meta charSet="utf-8" />
+        <meta name="google-adsense-account" content="ca-pub-1801318163824555"></meta>
         {head.title.toComponent()}
         {head.link.toComponent()}
         {head.meta.toComponent()}
